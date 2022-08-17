@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: hellow
   namespace: default
 spec:
   replicas: 1
@@ -14,14 +14,23 @@ spec:
         ser: web
     spec:
       containers:
-        - name: myapp
+        - name: hellow
           image: helloworld
           imagePullPolicy: Never
+#          env:
+#            - name: PSQL_USERNAME
+#              value: postgres
+#            - name: PSQL_SOURCE
+#              value: qe-portal-rds-aur-cls-dev-ind-ap-south-1.cluster-cvy4bxsmqjig.ap-south-1.rds.amazonaws.com:5432/hs_productivity_metrics
+#            - name: PSQL_PASSWORD
+#              value: postgres
+#            - name: PROFILE
+#              value: india
+
 ---
 
 apiVersion: v1
 kind: Service
-type:
 metadata:
   labels:
     name: app1
